@@ -12,6 +12,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "@agentcash/router": "latest",
-    "zod": "^3.22.0"
+    "zod": "^4.0.0"
   }
 }
