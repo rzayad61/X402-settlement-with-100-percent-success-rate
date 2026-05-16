@@ -1,11 +1,7 @@
-import express from "express";
-import cors from "cors";
-
-const app = express();
-app.use(cors({ origin: "*" }));
-
-app.get("/", (_req, res) => {
-  res.json({
+export default function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Content-Type", "application/json");
+  res.status(200).json({
     x402Version: 1,
     name: "x402 Pro Agent",
     accepts: [{
@@ -19,14 +15,4 @@ app.get("/", (_req, res) => {
       resource: "https://x402pro2.vercel.app/settle",
     }],
   });
-});
-
-app.get("/settle", (_req, res) => {
-  res.json({ success: true, message: "Payment settled via x402 Pro Agent" });
-});
-
-app.get("/health", (_req, res) => {
-  res.json({ status: "ok" });
-});
-
-export default app;
+}
